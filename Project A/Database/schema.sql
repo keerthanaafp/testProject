@@ -16,3 +16,11 @@ CREATE TABLE service_request(
 );
 CREATE INDEX idx_service_request_priority ON service_request(priority);
 CREATE INDEX idx_service_request_status ON service_request(status); 
+
+INSERT INTO service_request (
+  customer_name , service_type, priority , assigned_technecian, estimated_cost,status
+) VALUES (
+  'name3' , 'purifier' , 'medium' , 'tech3' , 1200.00 , 'close'
+);
+
+SELECT * FROM service_request;
