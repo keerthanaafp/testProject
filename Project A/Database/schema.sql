@@ -15,4 +15,4 @@ CREATE TABLE service_request(
   updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX idx_service_request_priority ON service_request(priority);
-CREATE INDEX idx_service_request_status ON service_request(status);
+CREATE INDEX idx_service_request_status ON service_request(status); 
