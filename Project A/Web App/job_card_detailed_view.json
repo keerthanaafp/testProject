@@ -1,0 +1,584 @@
+{
+  "ui": [
+    {
+      "type": "sidebar",
+      "items": [
+        {
+          "icon": "users",
+          "label": "Customers",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "6n3DCHm",
+              "view_id": "customer_list_view",
+              "navigation_type": "view"
+            }
+          }
+        },
+        {
+          "icon": "briefcase",
+          "label": "Jobs",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "6n3DCHm",
+              "view_id": "jobs_list_view",
+              "navigation_type": "view"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "icon": "user",
+                          "size": 28,
+                          "type": "icon",
+                          "color": "#1C77FF",
+                          "element_id": "avatar_icon"
+                        }
+                      ],
+                      "type": "container",
+                      "color": "#E8F0FE",
+                      "padding": 16,
+                      "element_id": "avatar_container",
+                      "border_radius": 40
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 16,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customer.data.[0].first_name}} {{customer.data.[0].last_name}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "font_size": 22,
+                          "element_id": "customer_name",
+                          "font_weight": "700"
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 4
+                        },
+                        {
+                          "text": "{{customer.data.[0].email}}",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "customer_email"
+                        }
+                      ],
+                      "type": "column",
+                      "expanded": true,
+                      "element_id": "customer_name_col"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 800,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "Total Jobs",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 12,
+                          "element_id": "lbl_total_jobs"
+                        },
+                        {
+                          "text": "{{jobs_count.data.[0].total}}",
+                          "type": "text",
+                          "color": "#1C77FF",
+                          "font_size": 24,
+                          "element_id": "txt_total_jobs",
+                          "font_weight": "700"
+                        }
+                      ],
+                      "type": "column",
+                      "element_id": "col_total_jobs"
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "customer_header_row",
+                  "cross_axis_alignment": "center"
+                }
+              ],
+              "type": "container",
+              "color": "#F0FAFF",
+              "element_id": "customer_header_card",
+              "padding_top": 24,
+              "padding_left": 24,
+              "border_radius": 12,
+              "margin_bottom": 24,
+              "padding_right": 24,
+              "padding_bottom": 24
+            },
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "icon": "user",
+                          "size": 14,
+                          "type": "icon",
+                          "color": "#6B7280",
+                          "element_id": "ic_fn"
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 8,
+                          "alignment": "horizontal"
+                        },
+                        {
+                          "text": "First Name",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 12,
+                          "element_id": "lbl_fn"
+                        }
+                      ],
+                      "type": "row",
+                      "element_id": "row_fn_label"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customer.data.[0].first_name}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "font_size": 14,
+                          "element_id": "txt_fn",
+                          "font_weight": "700"
+                        }
+                      ],
+                      "type": "container",
+                      "margin_left": 20
+                    }
+                  ],
+                  "type": "container",
+                  "width": 3,
+                  "element_id": "info_fn",
+                  "margin_left": 30
+                },
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "icon": "user",
+                          "size": 14,
+                          "type": "icon",
+                          "color": "#6B7280",
+                          "element_id": "ic_ln"
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 8,
+                          "alignment": "horizontal"
+                        },
+                        {
+                          "text": "Last Name",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 12,
+                          "element_id": "lbl_ln"
+                        }
+                      ],
+                      "type": "row",
+                      "element_id": "row_ln_label"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customer.data.[0].last_name}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "font_size": 14,
+                          "element_id": "txt_ln",
+                          "font_weight": "700"
+                        }
+                      ],
+                      "type": "container",
+                      "margin_left": 23
+                    }
+                  ],
+                  "type": "container",
+                  "width": 3,
+                  "element_id": "info_ln"
+                },
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "icon": "mail",
+                          "size": 14,
+                          "type": "icon",
+                          "color": "#6B7280",
+                          "element_id": "ic_em"
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 8,
+                          "alignment": "horizontal"
+                        },
+                        {
+                          "text": "Email",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 12,
+                          "element_id": "lbl_em"
+                        }
+                      ],
+                      "type": "row",
+                      "element_id": "row_em_label"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customer.data.[0].email}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "font_size": 14,
+                          "element_id": "txt_em",
+                          "font_weight": "700"
+                        }
+                      ],
+                      "type": "container",
+                      "margin_left": 23
+                    }
+                  ],
+                  "type": "container",
+                  "width": 3,
+                  "element_id": "info_em"
+                },
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "icon": "map-pin",
+                          "size": 14,
+                          "type": "icon",
+                          "color": "#6B7280",
+                          "element_id": "ic_addr"
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 8,
+                          "alignment": "horizontal"
+                        },
+                        {
+                          "text": "Address",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 12,
+                          "element_id": "lbl_addr"
+                        }
+                      ],
+                      "type": "row",
+                      "element_id": "row_addr_label"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customer.data.[0].address}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "font_size": 14,
+                          "element_id": "txt_addr",
+                          "font_weight": "700"
+                        }
+                      ],
+                      "type": "container",
+                      "margin_left": 23
+                    }
+                  ],
+                  "type": "container",
+                  "element_id": "info_addr"
+                }
+              ],
+              "type": "row",
+              "element_id": "customer_info_row"
+            }
+          ],
+          "type": "container",
+          "element_id": "customer_info_card",
+          "padding_top": 24,
+          "padding_left": 24,
+          "margin_bottom": 24,
+          "padding_right": 24,
+          "padding_bottom": 24
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "icon": "briefcase",
+                      "size": 18,
+                      "type": "icon",
+                      "color": "#1C77FF",
+                      "element_id": "ic_jobs_title"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 8,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "text": "Job History",
+                      "type": "text",
+                      "color": "#1A1A2E",
+                      "font_size": 18,
+                      "element_id": "lbl_jobs_title",
+                      "font_weight": "700"
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "jobs_title_row"
+                }
+              ],
+              "type": "container",
+              "element_id": "jobs_title_container",
+              "margin_bottom": 16
+            },
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "text": "Equipment",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "th_equipment",
+                          "font_weight": "600"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.4
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "Job Type",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "th_job_type",
+                          "font_weight": "600"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.1
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "Description",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "th_description",
+                          "font_weight": "600"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.6
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "Status",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "th_status",
+                          "font_weight": "600"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 1.2
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "Created At",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "th_created",
+                          "font_weight": "600"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.4
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "View",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 13,
+                          "element_id": "th_view",
+                          "font_weight": "600"
+                        }
+                      ],
+                      "type": "container"
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "jobs_table_header"
+                },
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customer_jobs.data.[index].equipment}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "expanded": true,
+                          "font_size": 13,
+                          "element_id": "td_equipment",
+                          "font_weight": "600"
+                        },
+                        {
+                          "text": "{{customer_jobs.data.[index].job_title}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "expanded": true,
+                          "font_size": 13,
+                          "element_id": "td_job_type"
+                        },
+                        {
+                          "text": "{{customer_jobs.data.[index].description}}",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "expanded": true,
+                          "font_size": 13,
+                          "element_id": "td_description"
+                        },
+                        {
+                          "ui": [
+                            {
+                              "text": "{{customer_jobs.data.[index].status}}",
+                              "type": "text",
+                              "color": "#2E7D32",
+                              "font_size": 11,
+                              "element_id": "td_status_text",
+                              "font_weight": "700"
+                            }
+                          ],
+                          "type": "container",
+                          "color": "#F2FFF5",
+                          "element_id": "td_status_badge",
+                          "padding_top": 4,
+                          "border_radius": 6,
+                          "padding_right": 10,
+                          "padding_bottom": 4
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 50,
+                          "alignment": "horizontal"
+                        },
+                        {
+                          "ui": [
+                            {
+                              "text": "{{customer_jobs.data.[index].created_at}}",
+                              "type": "date_time",
+                              "color": "#6B7280",
+                              "format": "dd MMM yyyy",
+                              "font_size": 12,
+                              "element_id": "td_created"
+                            }
+                          ],
+                          "type": "container",
+                          "width": 2.5,
+                          "element_id": "td_created_container"
+                        },
+                        {
+                          "icon": "eye",
+                          "size": 15,
+                          "type": "button",
+                          "color": "#1C77FF",
+                          "onclick": {
+                            "1": {
+                              "type": "navigation",
+                              "app_id": "6n3DCHm",
+                              "view_id": "job_card_detailed_view",
+                              "arguments": {
+                                "job_id": "{{customer_jobs.data.[index].id}}"
+                              },
+                              "navigation_type": "view"
+                            }
+                          },
+                          "bg_color": "#EFF6FF",
+                          "btn_type": "icon_button",
+                          "element_id": "td_view_btn"
+                        }
+                      ],
+                      "type": "row",
+                      "element_id": "job_table_row"
+                    }
+                  ],
+                  "data": "customer_jobs.data",
+                  "type": "list",
+                  "element_id": "jobs_table_list"
+                }
+              ],
+              "type": "container",
+              "element_id": "jobs_table_container"
+            }
+          ],
+          "type": "container",
+          "color": "#FFFFFF",
+          "element_id": "jobs_section_card",
+          "padding_top": 24,
+          "border_color": "#E0E7FF",
+          "border_width": 1,
+          "padding_left": 24,
+          "border_radius": 12,
+          "padding_right": 24,
+          "padding_bottom": 24
+        }
+      ],
+      "type": "container",
+      "color": "#F8FAFC",
+      "width": 12,
+      "element_id": "main_content",
+      "padding_top": 32,
+      "padding_left": 32,
+      "padding_right": 32
+    }
+  ],
+  "data": {
+    "customer": "SELECT * FROM customer_form_keerthanaa WHERE id = {{arguments.customer_id}}",
+    "jobs_count": "SELECT COUNT(*) as total FROM job_card_keerthanaa WHERE customer_id = {{arguments.customer_id}}",
+    "customer_jobs": "SELECT * FROM job_card_keerthanaa WHERE customer_id = {{arguments.customer_id}} ORDER BY id DESC"
+  },
+  "label": "Customer Detail",
+  "view_id": "customer_detailed_view"
+}

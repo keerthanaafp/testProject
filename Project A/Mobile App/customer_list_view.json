@@ -1,0 +1,117 @@
+{
+  "ui": [
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "icon": "user",
+                          "size": 22,
+                          "type": "icon",
+                          "color": "#1C77FF",
+                          "element_id": "cusotnemr_icon"
+                        }
+                      ],
+                      "type": "container",
+                      "color": "#E8F0FE",
+                      "padding": 10,
+                      "element_id": "customer_icon_containers",
+                      "padding_top": 10,
+                      "padding_left": 10,
+                      "border_radius": 24,
+                      "padding_right": 10,
+                      "padding_bottom": 10
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 14,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customers.data.[index].first_name}} {{customers.data.[index].last_name}}",
+                          "type": "text",
+                          "color": "#1A1A2E",
+                          "font_size": 15,
+                          "element_id": "cust_name",
+                          "font_weight": "700"
+                        },
+                        {
+                          "type": "space_widget",
+                          "space": 4
+                        },
+                        {
+                          "text": "{{customers.data.[index].email}}",
+                          "type": "text",
+                          "color": "#6B7280",
+                          "font_size": 12,
+                          "element_id": "cust_email"
+                        }
+                      ],
+                      "type": "column",
+                      "expanded": true,
+                      "element_id": "name_email_card_column"
+                    },
+                    {
+                      "icon": "chevron-right",
+                      "size": 18,
+                      "type": "icon",
+                      "color": "#1C77FF",
+                      "element_id": "arrow_icon"
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "row_list",
+                  "cross_axis_alignment": "center"
+                }
+              ],
+              "type": "container",
+              "color": "#FFFFFF",
+              "element_id": "main_container",
+              "padding_top": 16,
+              "border_color": "#E0E7FF",
+              "padding_left": 16,
+              "border_radius": 14,
+              "margin_bottom": 12,
+              "padding_right": 16,
+              "padding_bottom": 16
+            }
+          ],
+          "type": "card",
+          "element_id": "card_view"
+        }
+      ],
+      "data": "customers.data",
+      "type": "list",
+      "onclick": {
+        "1": {
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "view_id": "detailed_customer_screen_keerthanaa",
+          "arguments": {
+            "customer_id": "{{customers.data.[index].id}}"
+          }
+        }
+      },
+      "element_id": "customers_list"
+    }
+  ],
+  "data": {
+    "customers": "SELECT * FROM customer_form_keerthanaa"
+  },
+  "label": "Customers",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "customer_list_view"
+}

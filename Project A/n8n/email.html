@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Email</title>
+</head>
+<body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4;">
+
+  <table align="center" width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; margin-top:20px; border-radius:8px; overflow:hidden;">
+    
+    <!-- Header -->
+    <tr>
+      <td style="background:#4CAF50; padding:20px; text-align:center; color:white; font-size:24px;">
+        New Job Created 🛠️
+      </td>
+    </tr>
+
+    <!-- Body -->
+    <tr>
+      <td style="padding:20px; color:#333;">
+        <h3>Hello 👋</h3>
+
+        <p>
+          A new job has been created with the following details:
+        </p>
+
+        <table cellpadding="8" cellspacing="0" width="100%" style="border-collapse: collapse; margin-top:10px;">
+          
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Customer Name</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.first_name }} {{ $json.last_name }}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Email</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.email }}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Job Type</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.job_title }}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Description</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.description }}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Equipment</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.equipment }}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Status</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.status }}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #ddd;"><b>Technician</b></td>
+            <td style="border:1px solid #ddd;">
+              {{ $json.technician_id }}
+            </td>
+          </tr>
+
+        </table>
+
+        <p style="margin-top:20px;">
+          Please review and proceed accordingly.
+        </p>
+
+        <p style="margin-top:30px;">
+          Regards,<br/>
+          <b>Your Team</b>
+        </p>
+      </td>
+    </tr>
+
+    <!-- Footer -->
+    <tr>
+      <td style="background:#f1f1f1; padding:15px; text-align:center; font-size:12px; color:#777;">
+        © 2026 Your Company. All rights reserved.
+      </td>
+    </tr>
+
+  </table>
+
+</body>
+</html>

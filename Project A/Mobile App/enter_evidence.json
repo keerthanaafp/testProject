@@ -1,0 +1,319 @@
+{
+  "ui": [
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "icon": "info",
+                  "size": 22,
+                  "type": "icon",
+                  "color": "#1C77FF",
+                  "element_id": "ic_info"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 8,
+                  "alignment": "horizontal"
+                },
+                {
+                  "text": "Job Information",
+                  "type": "text",
+                  "color": "#1A1A2E",
+                  "font_size": 16,
+                  "element_id": "lbl_job_info",
+                  "font_weight": "600"
+                }
+              ],
+              "type": "row",
+              "element_id": "job_info_header"
+            }
+          ],
+          "type": "container",
+          "color": "#F8F5FF",
+          "width": 600,
+          "element_id": "job_info_container",
+          "margin_left": -10,
+          "padding_top": 4,
+          "margin_right": -10,
+          "padding_left": 10,
+          "border_radius": 14,
+          "padding_bottom": 4
+        },
+        {
+          "type": "space_widget",
+          "space": 14
+        },
+        {
+          "ui": [
+            {
+              "icon": "user",
+              "size": 14,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_customer"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Customer",
+              "type": "text",
+              "color": "#6B7280",
+              "font_size": 12,
+              "element_id": "lbl_customer"
+            },
+            {
+              "type": "spacer",
+              "element_id": "spacer_1"
+            },
+            {
+              "text": "{{job_info.data.[0].first_name}} {{job_info.data.[0].last_name}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 13,
+              "element_id": "txt_customer",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_customer"
+        },
+        {
+          "type": "space_widget",
+          "space": 10
+        },
+        {
+          "ui": [
+            {
+              "icon": "briefcase",
+              "size": 14,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_job_title"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Job Type",
+              "type": "text",
+              "color": "#6B7280",
+              "font_size": 12,
+              "element_id": "lbl_job_title"
+            },
+            {
+              "type": "spacer",
+              "element_id": "spacer_2"
+            },
+            {
+              "text": "{{job_info.data.[0].job_title}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 13,
+              "element_id": "txt_job_title",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_job_title"
+        },
+        {
+          "type": "space_widget",
+          "space": 10
+        },
+        {
+          "ui": [
+            {
+              "icon": "tool",
+              "size": 14,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_equipment"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Equipment",
+              "type": "text",
+              "color": "#6B7280",
+              "font_size": 12,
+              "element_id": "lbl_equipment"
+            },
+            {
+              "type": "spacer",
+              "element_id": "spacer_3"
+            },
+            {
+              "text": "{{job_info.data.[0].equipment}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 13,
+              "element_id": "txt_equipment",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_equipment"
+        }
+      ],
+      "type": "container",
+      "element_id": "job_info_card",
+      "padding_top": 16,
+      "padding_left": 16,
+      "margin_bottom": 16,
+      "padding_right": 16,
+      "padding_bottom": 16
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "icon": "file",
+              "size": 22,
+              "type": "icon",
+              "color": "#1C77FF",
+              "element_id": "ic_info"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Enter Evidence",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 16,
+              "element_id": "lbl_job_info",
+              "font_weight": "600"
+            }
+          ],
+          "type": "row",
+          "element_id": "job_info_header"
+        }
+      ],
+      "type": "container",
+      "color": "#F8F5FF",
+      "width": 600,
+      "element_id": "job_info_container",
+      "margin_left": 10,
+      "padding_top": 4,
+      "margin_right": 10,
+      "padding_left": 10,
+      "border_radius": 14,
+      "margin_bottom": 10,
+      "padding_bottom": 4
+    },
+    {
+      "ui": [
+        {
+          "type": "space_widget",
+          "space": 15
+        },
+        {
+          "data": [
+            "screws",
+            "lubricants",
+            "DC motors",
+            "AC motors",
+            "sensors",
+            "cables",
+            "panels"
+          ],
+          "type": "input",
+          "label": "Log parts Used",
+          "required": true,
+          "element_id": "log_parts_input",
+          "input_type": "dropdown"
+        }
+      ],
+      "type": "container",
+      "color": "#FFFFFF",
+      "element_id": "parts_card",
+      "border_color": "#E0E7FF",
+      "border_width": 1,
+      "padding_left": 25,
+      "border_radius": 14,
+      "margin_bottom": 24,
+      "padding_right": 20,
+      "padding_bottom": 10
+    },
+    {
+      "ui": [
+        {
+          "type": "input",
+          "label": "Evidence",
+          "is_multi": true,
+          "required": true,
+          "element_id": "evidence_input",
+          "input_type": "image",
+          "upload_mode": "DEFAULT"
+        }
+      ],
+      "type": "container",
+      "color": "#FFFFFF",
+      "element_id": "evidence_card",
+      "border_color": "#C8E6C9",
+      "border_width": 1,
+      "padding_left": 25,
+      "border_radius": 14,
+      "margin_bottom": 16,
+      "padding_right": 20
+    },
+    {
+      "type": "space_widget",
+      "space": 160
+    },
+    {
+      "text": "Submit Evidence",
+      "type": "button",
+      "width": 400,
+      "onclick": {
+        "1": {
+          "type": "execute_query",
+          "query": "UPDATE job_card_keerthanaa SET evidence = '{{input_data.evidence_input.[index].url}}', part = '{{input_data.log_parts_input.[index]}}', status = 'Evidence Created' WHERE id = {{arguments.job_id}}"
+        },
+        "2": {
+          "back": true,
+          "type": "navigation",
+          "arguments": {
+            "refresh": [
+              "job"
+            ]
+          },
+          "navigation_type": "view"
+        }
+      },
+      "btn_type": "filled_button",
+      "element_id": "btn_submit",
+      "check_required": true
+    }
+  ],
+  "data": {
+    "job_info": "SELECT j.*, c.first_name, c.last_name FROM job_card_keerthanaa j LEFT JOIN customer_form_keerthanaa c ON j.customer_id = c.id WHERE j.id = {{arguments.job_id}}"
+  },
+  "label": "Evidence",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "enter_evidence_view",
+  "back_confirmation": {
+    "title": "Confirm Navigation",
+    "enabled": true,
+    "message": "Are you sure you want to go back? Any unsaved changes will be lost."
+  }
+}

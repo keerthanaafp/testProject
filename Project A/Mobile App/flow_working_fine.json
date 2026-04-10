@@ -1,0 +1,880 @@
+{
+  "label": "mobile_app_keerthanaa",
+  "views": {
+    "add_job": {
+      "ui": [
+        {
+          "text": "Add Job",
+          "type": "text",
+          "element_id": "job_card_title",
+          "font_weight": "700"
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "data": [
+            "Maintenance",
+            "Installation",
+            "Repair",
+            "Inspection"
+          ],
+          "type": "input",
+          "label": "Job Type",
+          "element_id": "job_title_input",
+          "input_type": "dropdown"
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "type": "input",
+          "label": "Equipment Name",
+          "element_id": "equipment_input",
+          "input_type": "text"
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "type": "input",
+          "label": "Description",
+          "max_lines": 3,
+          "element_id": "remarks_input",
+          "input_type": "text"
+        },
+        {
+          "type": "space_widget",
+          "space": 24
+        },
+        {
+          "text": "Submit",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "execute_query",
+              "query": "INSERT INTO job_card_keerthanaa  (job_title, equipment, description, customer_id, status, created_at) VALUES ('{{input_data.job_title_input.[index]}}', '{{input_data.equipment_input.[index]}}', '{{input_data.remarks_input.[index]}}', '{{arguments.customer_id}}', 'Created', NOW()) ORDER BY id DESC"
+            },
+            "2": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "detailed_customer_screen_keerthanaa",
+              "arguments": {
+                "customer_id": "{{arguments.customer_id}}"
+              }
+            }
+          },
+          "btn_type": "filled_button"
+        }
+      ],
+      "data": {},
+      "label": "Add Job",
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "view_id": "add_job"
+    },
+    "job_complete": {
+      "ui": [
+        {
+          "type": "input",
+          "label": "Customer Signature",
+          "width": 12,
+          "height": 200,
+          "element_id": "input_sig",
+          "input_type": "signature"
+        },
+        {
+          "type": "input",
+          "label": "Remarks",
+          "element_id": "remarks_input",
+          "input_type": "text"
+        },
+        {
+          "text": "Job Completed",
+          "type": "text"
+        },
+        {
+          "text": "Complete Job",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "execute_query",
+              "query": "UPDATE job_card_keerthanaa SET status = 'Completed', completed_at = NOW() WHERE id = '{{arguments.job_id}}'"
+            },
+            "2": {
+              "key": "job",
+              "type": "update_data",
+              "query": "SELECT * FROM job_card_keerthanaa WHERE id = '{{arguments.job_id}}' ORDER BY id DESC"
+            },
+            "3": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "job_detailed_view",
+              "arguments": {
+                "job_id": "{{arguments.job_id}}"
+              },
+              "navigation_type": "view"
+            }
+          },
+          "replace": true,
+          "btn_type": "filled_button",
+          "element_id": "complete_job_button"
+        }
+      ],
+      "data": {
+        "customers": "SELECT * FROM customer_form_keerthanaa WHERE id = '{{arguments.customer_id}}"
+      },
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "label": "Job Completed",
+      "view_id": "job_complete"
+    },
+    "job_detailed_view": {
+      "ui": [
+        {
+          "text": "Job Detail",
+          "type": "text",
+          "element_id": "job_detail_title"
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "text": "Equipment :",
+              "type": "text",
+              "element_id": "lbl_equipment"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{job.data.[0].equipment}}",
+              "type": "text",
+              "element_id": "txt_equipment"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_equipment"
+        },
+        {
+          "type": "space_widget",
+          "space": 8,
+          "element_id": "sp_1"
+        },
+        {
+          "ui": [
+            {
+              "text": "Job Title :",
+              "type": "text",
+              "element_id": "lbl_job_title"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{job.data.[0].job_title}}",
+              "type": "text",
+              "font_size": 15,
+              "element_id": "txt_job_title"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_job_title"
+        },
+        {
+          "type": "space_widget",
+          "space": 8,
+          "element_id": "sp_2"
+        },
+        {
+          "ui": [
+            {
+              "text": "Description :",
+              "type": "text",
+              "element_id": "lbl_description"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{job.data.[0].description}}",
+              "type": "text",
+              "element_id": "txt_description"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_description"
+        },
+        {
+          "type": "space_widget",
+          "space": 8,
+          "element_id": "sp_3"
+        },
+        {
+          "ui": [
+            {
+              "text": "Status :",
+              "type": "text",
+              "element_id": "lbl_status"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{job.data.[0].status}}",
+              "type": "text",
+              "element_id": "txt_status"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_status"
+        },
+        {
+          "type": "space_widget",
+          "space": 24,
+          "element_id": "sp_4"
+        },
+        {
+          "text": "Job Completed",
+          "type": "text",
+          "color": "#008000",
+          "element_id": "txt_job_completed",
+          "visibility_condition": "'{{job.data.[0].status}}' ='Completed'"
+        },
+        {
+          "type": "space_widget",
+          "space": 24,
+          "element_id": "sp_5"
+        },
+        {
+          "text": "Start Job",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "execute_query",
+              "query": "UPDATE job_card_keerthanaa SET status = 'In Progress', started_at = NOW() WHERE id = '{{arguments.job_id}}'"
+            },
+            "2": {
+              "key": "job",
+              "type": "update_data",
+              "query": "SELECT * FROM job_card_keerthanaa WHERE id = '{{arguments.job_id}}' ORDER BY id DESC"
+            }
+          },
+          "replace": true,
+          "btn_type": "filled_button",
+          "element_id": "btn_start_job",
+          "visibility_condition": "'{{job.data.[0].status}}' ='Created'"
+        },
+        {
+          "text": "Enter Evidence",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "execute_query",
+              "query": "UPDATE job_card_keerthanaa SET status = 'Evidence Created' WHERE id = '{{arguments.job_id}}'"
+            },
+            "2": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "enter_evidence_view",
+              "arguments": {
+                "job_id": "{{arguments.job_id}}"
+              },
+              "navigation_type": "view"
+            }
+          },
+          "replace": true,
+          "btn_type": "filled_button",
+          "element_id": "enter_evidence",
+          "visibility_condition": "'{{job.data.[0].status}}' ='In Progress'"
+        },
+        {
+          "type": "space_widget",
+          "space": 24,
+          "element_id": "sp_6"
+        },
+        {
+          "text": "Activity Log",
+          "type": "text",
+          "font_size": 14,
+          "element_id": "txt_activity_log"
+        },
+        {
+          "type": "space_widget",
+          "space": 8,
+          "element_id": "sp_7"
+        },
+        {
+          "text": "Job created at : {{job.data.[0].created_at}}",
+          "type": "text",
+          "font_size": 12,
+          "element_id": "txt_created_at"
+        },
+        {
+          "type": "space_widget",
+          "space": 4,
+          "element_id": "sp_8"
+        },
+        {
+          "text": "Job started at : {{job.data.[0].started_at}}",
+          "type": "text",
+          "font_size": 12,
+          "element_id": "txt_started_at"
+        },
+        {
+          "type": "space_widget",
+          "space": 4,
+          "element_id": "sp_9"
+        },
+        {
+          "text": "Job Completed at : {{job.data.[0].completed_at}}",
+          "type": "text",
+          "font_size": 12,
+          "element_id": "txt_completed_at"
+        }
+      ],
+      "data": {
+        "job": "SELECT * FROM job_card_keerthanaa WHERE id = '{{arguments.job_id}}'"
+      },
+      "label": "Job Detail",
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "view_id": "job_detailed_view"
+    },
+    "customer_list_view": {
+      "ui": [
+        {
+          "text": "Customers",
+          "type": "text",
+          "font_size": 20,
+          "element_id": "page_title",
+          "font_weight": "700"
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "text": "{{customers.data.[index].first_name}} {{customers.data.[index].last_name}}",
+                      "type": "text",
+                      "font_size": 14,
+                      "element_id": "cust_name"
+                    },
+                    {
+                      "text": "{{customers.data.[index].email}} {{customers.data.[index].id}}",
+                      "type": "text",
+                      "font_size": 12,
+                      "element_id": "cust_email"
+                    }
+                  ],
+                  "type": "container",
+                  "element_id": "cust_cont",
+                  "border_width": 1,
+                  "margin_bottom": 5
+                }
+              ],
+              "type": "card",
+              "element_id": "card_view"
+            }
+          ],
+          "data": "customers.data",
+          "type": "list",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "detailed_customer_screen_keerthanaa",
+              "arguments": {
+                "customer_id": "{{customers.data.[index].id}}"
+              }
+            }
+          },
+          "element_id": "customers_list"
+        }
+      ],
+      "data": {
+        "customers": "SELECT * FROM customer_form_keerthanaa"
+      },
+      "label": "Customers List View",
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "view_id": "keerthanaa_homescreen"
+    },
+    "job_card_list_view": {
+      "ui": [
+        {
+          "text": "Job Cards",
+          "type": "text",
+          "font_size": 20,
+          "element_id": "page_title",
+          "font_weight": "700"
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "text": "{{job.data.[index].job_title}}",
+                      "type": "text",
+                      "font_size": 14,
+                      "element_id": "cust_name"
+                    },
+                    {
+                      "text": "{{job.data.[index].status}} {{job.data.[index].id}}",
+                      "type": "text",
+                      "font_size": 12,
+                      "element_id": "cust_email"
+                    }
+                  ],
+                  "type": "container",
+                  "element_id": "cust_cont",
+                  "border_width": 1,
+                  "margin_bottom": 5
+                }
+              ],
+              "type": "card",
+              "element_id": "card_view"
+            }
+          ],
+          "data": "job.data",
+          "type": "list",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "job_detailed_view",
+              "arguments": {
+                "job_id": "{{job.data.[index].id}}"
+              }
+            }
+          },
+          "element_id": "job_list"
+        }
+      ],
+      "data": {
+        "job": "SELECT * FROM job_card_keerthanaa"
+      },
+      "label": "Job Cards View",
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "view_id": "keerthanaa_homescreen"
+    },
+    "enter_evidence_view": {
+      "ui": [
+        {
+          "text": "Evidence Details",
+          "type": "text",
+          "font_size": 20,
+          "element_id": "page_title",
+          "font_weight": "700"
+        },
+        {
+          "type": "space_widget",
+          "space": 18
+        },
+        {
+          "type": "input",
+          "label": "Evidence",
+          "element_id": "evidence_input",
+          "input_type": "image",
+          "upload_mode": "DEFAULT"
+        },
+        {
+          "data": [
+            "screws",
+            "lubricants",
+            "DC motors",
+            "AC motors",
+            "sensors",
+            "cables",
+            "panels"
+          ],
+          "type": "input",
+          "label": "Log parts Used",
+          "element_id": "log_parts_input",
+          "input_type": "dropdown"
+        },
+        {
+          "text": "Submit",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "execute_query",
+              "query": "INSERT INTO job_card_keerthanaa  (evidence, part , status) VALUES ('{{input_data.evidence_input.[index]}}', '{{input_data.log_parts_input.[index]}}', 'Evidence Created' WHERE id = '{{arguments.job_id}}' ORDER BY id DESC)"
+            },
+            "2": {
+              "key": "job",
+              "type": "update_data",
+              "query": "SELECT * FROM job_card_keerthanaa WHERE job_id = '{{arguments.job_id}}' ORDER BY id DESC"
+            },
+            "3": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "job_complete",
+              "arguments": {
+                "job_id": "{{arguments.job_id}}"
+              },
+              "navigation_type": "view"
+            }
+          },
+          "replace": true,
+          "btn_type": "filled_button"
+        }
+      ],
+      "data": {
+        "customers": "SELECT * FROM customer_form_keerthanaa WHERE id = '{{arguments.customer_id}}"
+      },
+      "label": "Evidence",
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "view_id": "enter_evidence_view"
+    },
+    "keerthanaa_homescreen": {
+      "ui": [
+        {
+          "text": "Welcome",
+          "type": "text",
+          "font_size": 20,
+          "element_id": "page_title",
+          "font_weight": "700"
+        },
+        {
+          "text": "Customer Details",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "customer_list_view",
+              "navigation_type": "view"
+            }
+          },
+          "replace": true,
+          "btn_type": "filled_button"
+        },
+        {
+          "text": "Job Cards Details",
+          "type": "button",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "job_card_list_view",
+              "navigation_type": "view"
+            }
+          },
+          "replace": true,
+          "btn_type": "filled_button"
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "text": "{{customers.data.[index].first_name}} {{customers.data.[index].last_name}}",
+                      "type": "text",
+                      "font_size": 14,
+                      "element_id": "cust_name"
+                    },
+                    {
+                      "text": "{{customers.data.[index].email}} {{customers.data.[index].id}}",
+                      "type": "text",
+                      "font_size": 12,
+                      "element_id": "cust_email"
+                    }
+                  ],
+                  "type": "container",
+                  "element_id": "cust_cont",
+                  "border_width": 1,
+                  "margin_bottom": 5
+                }
+              ],
+              "type": "card",
+              "element_id": "card_view"
+            }
+          ],
+          "data": "customers.data",
+          "type": "list",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "detailed_customer_screen_keerthanaa",
+              "arguments": {
+                "customer_id": "{{customers.data.[index].id}}"
+              }
+            }
+          },
+          "element_id": "customers_list"
+        }
+      ],
+      "data": {
+        "job": "SELECT * FROM job_card_keerthanaa WHERE id = '{{arguments.job_id}}"
+      },
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "label": "Home Screen",
+      "view_id": "keerthanaa_homescreen"
+    },
+    "detailed_customer_screen_keerthanaa": {
+      "ui": [
+        {
+          "text": "Welcome Back {{customer.data.[0].first_name}} {{customer.data.[0].last_name}} !",
+          "type": "text",
+          "font_size": 20
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "text": "First Name :",
+              "type": "text"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{customer.data.[0].first_name}}",
+              "type": "text"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "type": "space_widget",
+          "space": 8
+        },
+        {
+          "ui": [
+            {
+              "text": "Last Name :",
+              "type": "text"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{customer.data.[0].last_name}}",
+              "type": "text"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "type": "space_widget",
+          "space": 8
+        },
+        {
+          "ui": [
+            {
+              "text": "Email :",
+              "type": "text"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{customer.data.[0].email}}",
+              "type": "text"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "type": "space_widget",
+          "space": 8,
+          "element_id": "space"
+        },
+        {
+          "ui": [
+            {
+              "text": "Address :",
+              "type": "text"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "{{customer.data.[0].address}}",
+              "type": "text"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "type": "space_widget",
+          "space": 24
+        },
+        {
+          "ui": [
+            {
+              "text": "Jobs",
+              "type": "text",
+              "expanded": true
+            },
+            {
+              "type": "space_widget",
+              "space": 24
+            },
+            {
+              "text": "Add Job",
+              "type": "button",
+              "onclick": {
+                "1": {
+                  "type": "navigation",
+                  "app_id": "7vw0X0F",
+                  "view_id": "add_job",
+                  "arguments": {
+                    "customer_id": "{{arguments.customer_id}}"
+                  },
+                  "navigation_type": "view"
+                }
+              },
+              "replace": true,
+              "btn_type": "filled_button"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "type": "space_widget",
+          "space": 12
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "text": "{{jobs.data.[index].equipment}}",
+                          "type": "text",
+                          "expanded": true,
+                          "font_size": 14,
+                          "element_id": "txt_equipment_text",
+                          "font_weight": "700"
+                        },
+                        {
+                          "text": "{{jobs.data.[index].status}}",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "text": "{{jobs.data.[index].job_title}}",
+                      "type": "text",
+                      "font_size": 12
+                    }
+                  ],
+                  "type": "container",
+                  "element_id": "job_cont",
+                  "margin_bottom": 5
+                }
+              ],
+              "type": "card"
+            }
+          ],
+          "data": "jobs.data",
+          "type": "list",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "7vw0X0F",
+              "view_id": "job_detailed_view",
+              "arguments": {
+                "job_id": "{{jobs.data.[index].id}}",
+                "customer_id": "{{arguments.customer_id}}"
+              },
+              "navigation_type": "view"
+            }
+          }
+        }
+      ],
+      "data": {
+        "jobs": "SELECT * FROM job_card_keerthanaa WHERE customer_id = {{arguments.customer_id}}",
+        "customer": "SELECT * FROM customer_form_keerthanaa WHERE id = {{arguments.customer_id}}"
+      },
+      "label": "Customer Detail",
+      "margin": {
+        "top": 16,
+        "left": 16,
+        "right": 16,
+        "bottom": 16
+      },
+      "view_id": "detailed_customer_screen_keerthanaa"
+    }
+  },
+  "app_id": "7vw0X0F",
+  "settings": {
+    "theme": "default",
+    "access": {
+      "auth_table": "",
+      "visibility": "private",
+      "auth_token_field": "token"
+    },
+    "navigation": "bottom"
+  },
+  "description": "A new app created with the app builder"
+}

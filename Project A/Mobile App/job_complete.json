@@ -1,0 +1,71 @@
+{
+  "ui": [
+    {
+      "type": "input",
+      "label": "Customer Signature",
+      "width": 12,
+      "height": 200,
+      "required": true,
+      "element_id": "input_sig",
+      "input_type": "signature"
+    },
+    {
+      "type": "input",
+      "label": "Remarks",
+      "required": true,
+      "element_id": "remarks_input",
+      "input_type": "text"
+    },
+    {
+      "text": "Job Completed",
+      "type": "text"
+    },
+    {
+      "text": "Complete Job",
+      "type": "button",
+      "width": 400,
+      "onclick": {
+        "1": {
+          "type": "execute_query",
+          "query": "UPDATE job_card_keerthanaa SET status = 'Completed',signature = '{{input_data.input_sig.[index].url}}',remarks = '{{input_data.remarks_input.[index]}}',end_job = '{<!getLocation().longitude!>, <!getLocation().latitude!>}', completed_at = NOW() WHERE id = '{{arguments.job_id}}'"
+        },
+        "2": {
+          "key": "job",
+          "type": "update_data",
+          "query": "SELECT * FROM job_card_keerthanaa WHERE id = '{{arguments.job_id}}'"
+        },
+        "3": {
+          "back": true,
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "view_id": "job_detailed_view",
+          "arguments": {
+            "refresh": [
+              "job"
+            ]
+          },
+          "navigation_type": "view"
+        }
+      },
+      "btn_type": "filled_button",
+      "element_id": "complete_job_button",
+      "check_required": true
+    }
+  ],
+  "data": {
+    "customers": "SELECT * FROM customer_form_keerthanaa WHERE id = '{{arguments.customer_id}}'"
+  },
+  "label": "Job Completed",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "job_complete",
+  "back_confirmation": {
+    "title": "Confirm Navigation",
+    "enabled": true,
+    "message": "Are you sure you want to go back? Any unsaved changes will be lost."
+  }
+}

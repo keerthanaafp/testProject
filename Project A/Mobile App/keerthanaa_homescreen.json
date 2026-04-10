@@ -1,0 +1,166 @@
+{
+  "ui": [
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "icon": "users",
+                  "size": 22,
+                  "type": "icon",
+                  "color": "#1C77FF",
+                  "element_id": "icon_customers"
+                }
+              ],
+              "type": "container",
+              "padding": 10,
+              "element_id": "icon_bg_customers",
+              "border_radius": 10
+            },
+            {
+              "type": "space_widget",
+              "space": 14,
+              "alignment": "horizontal"
+            },
+            {
+              "ui": [
+                {
+                  "text": "Customers",
+                  "type": "text",
+                  "color": "#1A1A2E",
+                  "font_size": 16,
+                  "element_id": "txt_customers_title",
+                  "font_weight": "700"
+                },
+                {
+                  "text": "View and manage customer records",
+                  "type": "text",
+                  "color": "#6B7280",
+                  "font_size": 13,
+                  "element_id": "txt_customers_sub"
+                }
+              ],
+              "type": "column",
+              "expanded": true,
+              "element_id": "col_customers"
+            },
+            {
+              "icon": "chevron-right",
+              "size": 20,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "arrow_customers"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_customers"
+        }
+      ],
+      "type": "container",
+      "color": "#F0FAFF",
+      "onclick": {
+        "1": {
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "replace": true,
+          "view_id": "customer_list_view",
+          "navigation_type": "view"
+        }
+      },
+      "element_id": "nav_customers",
+      "padding_top": 20,
+      "padding_left": 16,
+      "border_radius": 12,
+      "margin_bottom": 12,
+      "padding_right": 16,
+      "padding_bottom": 20
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "icon": "briefcase",
+                  "size": 22,
+                  "type": "icon",
+                  "color": "#7B61FF",
+                  "element_id": "icon_jobs"
+                }
+              ],
+              "type": "container",
+              "element_id": "icon_breifcase"
+            },
+            {
+              "type": "space_widget",
+              "space": 16,
+              "alignment": "horizontal"
+            },
+            {
+              "ui": [
+                {
+                  "text": "Job Cards",
+                  "type": "text",
+                  "color": "#1A1A2E",
+                  "font_size": 16,
+                  "element_id": "txt_jobs_title",
+                  "font_weight": "700"
+                },
+                {
+                  "text": "Track and update field job cards",
+                  "type": "text",
+                  "color": "#6B7280",
+                  "font_size": 13,
+                  "element_id": "txt_jobs_sub"
+                }
+              ],
+              "type": "column",
+              "expanded": true,
+              "element_id": "column_title_subtitle"
+            },
+            {
+              "icon": "chevron-right",
+              "size": 20,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "arrow_secondd"
+            }
+          ],
+          "type": "row",
+          "element_id": "entire_card_in_a_row"
+        }
+      ],
+      "type": "container",
+      "color": "#F8F5FF",
+      "onclick": {
+        "1": {
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "view_id": "job_card_list_view",
+          "navigation_type": "view"
+        }
+      },
+      "element_id": "nav_jobs",
+      "padding_top": 20,
+      "border_color": "#FFE8D6",
+      "padding_left": 16,
+      "border_radius": 12,
+      "padding_right": 16,
+      "padding_bottom": 20
+    }
+  ],
+  "data": {
+    "customers": "SELECT * FROM customer_form_keerthanaa"
+  },
+  "label": "Ticket Management",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "keerthanaa_homescreen"
+}

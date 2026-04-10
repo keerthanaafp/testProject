@@ -1,0 +1,715 @@
+{
+  "ui": [
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "icon": "info",
+                  "size": 18,
+                  "type": "icon",
+                  "color": "#7B61FF",
+                  "element_id": "ic_info"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 8,
+                  "alignment": "horizontal"
+                },
+                {
+                  "text": "Job Information",
+                  "type": "text",
+                  "color": "#1A1A2E",
+                  "font_size": 15,
+                  "element_id": "lbl_job_info",
+                  "font_weight": "700"
+                }
+              ],
+              "type": "row",
+              "element_id": "card_label_row"
+            }
+          ],
+          "type": "container",
+          "color": "#F8F5FF",
+          "width": 600,
+          "element_id": "card_label_container",
+          "margin_left": -10,
+          "padding_top": 4,
+          "margin_right": -10,
+          "padding_left": 10,
+          "border_radius": 14,
+          "padding_bottom": 4
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "icon": "tool",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "icon_equi"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Equipment",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 13,
+              "element_id": "lbl_equipment"
+            },
+            {
+              "text": "{{job.data.[0].equipment}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 14,
+              "element_id": "txt_equipment",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "equipement_row"
+        },
+        {
+          "type": "space_widget",
+          "space": 14
+        },
+        {
+          "ui": [
+            {
+              "icon": "briefcase",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_job_title"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Job Type",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 13,
+              "element_id": "job_type"
+            },
+            {
+              "text": "{{job.data.[0].job_title}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 14,
+              "element_id": "txt_job_title",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "job_type_row"
+        },
+        {
+          "type": "space_widget",
+          "space": 14
+        },
+        {
+          "ui": [
+            {
+              "icon": "file-text",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "icon_Descrip"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Description",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 13,
+              "element_id": "lbl_description"
+            },
+            {
+              "text": "{{job.data.[0].description}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 14,
+              "element_id": "txt_description",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_description"
+        },
+        {
+          "type": "space_widget",
+          "space": 14
+        },
+        {
+          "ui": [
+            {
+              "icon": "activity",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "icon_status"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Status",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 13,
+              "element_id": "lbl_status"
+            },
+            {
+              "ui": [
+                {
+                  "text": "{{job.data.[0].status}}",
+                  "type": "text",
+                  "color": "#2E7D32",
+                  "font_size": 12,
+                  "element_id": "txt_status",
+                  "font_weight": "700"
+                }
+              ],
+              "type": "container",
+              "color": "#F2FFF5",
+              "element_id": "status_badge",
+              "padding_top": 4,
+              "padding_left": 10,
+              "border_radius": 8,
+              "padding_right": 10,
+              "padding_bottom": 4
+            }
+          ],
+          "type": "row",
+          "element_id": "row_status"
+        }
+      ],
+      "type": "container",
+      "element_id": "job_info_card",
+      "padding_top": 20,
+      "padding_left": 20,
+      "margin_bottom": 16,
+      "padding_right": 20,
+      "padding_bottom": 20
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "icon": "camera",
+                  "size": 18,
+                  "type": "icon",
+                  "color": "#7B61FF",
+                  "element_id": "ic_evidence_header"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 8,
+                  "alignment": "horizontal"
+                },
+                {
+                  "text": "Evidence Details",
+                  "type": "text",
+                  "color": "#1A1A2E",
+                  "font_size": 15,
+                  "element_id": "lbl_evidence_header",
+                  "font_weight": "700"
+                }
+              ],
+              "type": "row",
+              "element_id": "evidence_header_row"
+            }
+          ],
+          "type": "container",
+          "color": "#F8F5FF",
+          "width": 600,
+          "element_id": "evidence_header_container",
+          "margin_left": -10,
+          "padding_top": 4,
+          "margin_right": -10,
+          "padding_left": 10,
+          "border_radius": 14,
+          "padding_bottom": 4
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "icon": "tool",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_part"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Part Used",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 13,
+              "element_id": "lbl_part"
+            },
+            {
+              "text": "{{job.data.[0].part}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 14,
+              "element_id": "txt_part",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_part"
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "icon": "image",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_evidence_photo"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Evidence Photo",
+              "type": "text",
+              "color": "#6B7280",
+              "font_size": 13,
+              "element_id": "lbl_evidence_photo"
+            }
+          ],
+          "type": "row",
+          "element_id": "evidence_photo_label_row"
+        },
+        {
+          "type": "space_widget",
+          "space": 10
+        },
+        {
+          "data": "{{job.data.[0].evidence}}",
+          "type": "image",
+          "element_id": "imageprefill"
+        }
+      ],
+      "type": "container",
+      "element_id": "evidence_details_card",
+      "padding_top": 20,
+      "border_color": "#C8E6C9",
+      "padding_left": 20,
+      "margin_bottom": 16,
+      "padding_right": 20,
+      "padding_bottom": 20,
+      "visibility_condition": "'{{job.data.[0].status}}' ='Evidence Created' OR '{{job.data.[0].status}}' ='Completed'"
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "icon": "check-circle",
+                  "size": 18,
+                  "type": "icon",
+                  "color": "#7B61FF",
+                  "element_id": "ic_completion_header"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 8,
+                  "alignment": "horizontal"
+                },
+                {
+                  "text": "Completion Details",
+                  "type": "text",
+                  "color": "#1A1A2E",
+                  "font_size": 15,
+                  "element_id": "lbl_completion_header",
+                  "font_weight": "700"
+                }
+              ],
+              "type": "row",
+              "element_id": "completion_header_row"
+            }
+          ],
+          "type": "container",
+          "color": "#F8F5FF",
+          "width": 600,
+          "element_id": "completion_header_container",
+          "margin_left": -10,
+          "padding_top": 4,
+          "margin_right": -10,
+          "padding_left": 10,
+          "border_radius": 14,
+          "padding_bottom": 4
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "icon": "message-square",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_remarks"
+            },
+            {
+              "type": "space_widget",
+              "space": 10,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Remarks",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 13,
+              "element_id": "lbl_remarks"
+            },
+            {
+              "text": "{{job.data.[0].remarks}}",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 14,
+              "element_id": "txt_remarks",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_remarks"
+        },
+        {
+          "type": "space_widget",
+          "space": 16
+        },
+        {
+          "ui": [
+            {
+              "icon": "edit-3",
+              "size": 16,
+              "type": "icon",
+              "color": "#6B7280",
+              "element_id": "ic_signature"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Customer Signature",
+              "type": "text",
+              "color": "#6B7280",
+              "font_size": 13,
+              "element_id": "lbl_signature"
+            }
+          ],
+          "type": "row",
+          "element_id": "signature_label_row"
+        },
+        {
+          "type": "space_widget",
+          "space": 10
+        },
+        {
+          "data": "{{job.data.[0].signature}}",
+          "type": "image",
+          "element_id": "signature_image"
+        }
+      ],
+      "type": "container",
+      "element_id": "completion_details_card",
+      "padding_top": 20,
+      "padding_left": 20,
+      "margin_bottom": 16,
+      "padding_right": 20,
+      "padding_bottom": 20,
+      "visibility_condition": "'{{job.data.[0].status}}' ='Completed'"
+    },
+    {
+      "text": "Start Job",
+      "type": "button",
+      "width": 600,
+      "onclick": {
+        "1": {
+          "type": "execute_query",
+          "query": "UPDATE job_card_keerthanaa SET status = 'In Progress', start_job = '{<!getLocation().longitude!>, <!getLocation().latitude!>}', started_at = NOW() WHERE id = '{{arguments.job_id}}'"
+        },
+        "2": {
+          "key": "job",
+          "type": "update_data",
+          "query": "SELECT * FROM job_card_keerthanaa WHERE id = '{{arguments.job_id}}'"
+        }
+      },
+      "replace": true,
+      "btn_type": "filled_button",
+      "element_id": "btn_start_job",
+      "visibility_condition": "'{{job.data.[0].status}}' ='Created'"
+    },
+    {
+      "text": "Enter Evidence",
+      "type": "button",
+      "width": 600,
+      "onclick": {
+        "1": {
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "view_id": "enter_evidence_view",
+          "arguments": {
+            "job_id": "{{arguments.job_id}}"
+          },
+          "navigation_type": "view"
+        }
+      },
+      "replace": true,
+      "btn_type": "filled_button",
+      "element_id": "enter_evidence",
+      "visibility_condition": "'{{job.data.[0].status}}' ='In Progress'"
+    },
+    {
+      "text": "Complete Job",
+      "type": "button",
+      "width": 400,
+      "onclick": {
+        "1": {
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "view_id": "job_complete",
+          "arguments": {
+            "job_id": "{{arguments.job_id}}"
+          },
+          "navigation_type": "view"
+        }
+      },
+      "replace": true,
+      "btn_type": "filled_button",
+      "element_id": "btn_complete_job",
+      "visibility_condition": "'{{job.data.[0].status}}' ='Evidence Created'"
+    },
+    {
+      "type": "space_widget",
+      "space": 10,
+      "element_id": "sp_6"
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "icon": "clock",
+              "size": 18,
+              "type": "icon",
+              "color": "#4A4A4A",
+              "element_id": "ic_activity"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Activity Log",
+              "type": "text",
+              "color": "#1A1A2E",
+              "font_size": 15,
+              "element_id": "txt_activity_log",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "row_activity_header"
+        },
+        {
+          "type": "space_widget",
+          "space": 16,
+          "element_id": "sp_7"
+        },
+        {
+          "ui": [
+            {
+              "icon": "plus-circle",
+              "size": 15,
+              "type": "icon",
+              "color": "#4A4A4A",
+              "element_id": "ic_created"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Created",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 12,
+              "element_id": "lbl_created_at"
+            },
+            {
+              "text": "{{job.data.[0].created_at}}",
+              "type": "date_time",
+              "color": "#1A1A2E",
+              "format": "dd MMM yyyy, hh:mm a",
+              "font_size": 12,
+              "element_id": "txt_created_at",
+              "font_weight": "700",
+              "convert_to_local": true
+            }
+          ],
+          "type": "row",
+          "element_id": "row_created_at"
+        },
+        {
+          "type": "space_widget",
+          "space": 12,
+          "element_id": "sp_8"
+        },
+        {
+          "ui": [
+            {
+              "icon": "play-circle",
+              "size": 15,
+              "type": "icon",
+              "color": "#4A4A4A",
+              "element_id": "ic_started"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Started",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 12,
+              "element_id": "lbl_started_at"
+            },
+            {
+              "text": "{{job.data.[0].started_at}}",
+              "type": "date_time",
+              "color": "#1A1A2E",
+              "format": "dd MMM yyyy, hh:mm a",
+              "font_size": 12,
+              "element_id": "txt_started_at",
+              "font_weight": "700",
+              "convert_to_local": true
+            }
+          ],
+          "type": "row",
+          "element_id": "row_started_at"
+        },
+        {
+          "type": "space_widget",
+          "space": 12,
+          "element_id": "sp_9"
+        },
+        {
+          "ui": [
+            {
+              "icon": "check-circle",
+              "size": 15,
+              "type": "icon",
+              "color": "#4A4A4A",
+              "element_id": "ic_completed_log"
+            },
+            {
+              "type": "space_widget",
+              "space": 8,
+              "alignment": "horizontal"
+            },
+            {
+              "text": "Completed",
+              "type": "text",
+              "color": "#6B7280",
+              "expanded": true,
+              "font_size": 12,
+              "element_id": "lbl_completed_at"
+            },
+            {
+              "text": "{{job.data.[0].completed_at}}",
+              "type": "date_time",
+              "color": "#1A1A2E",
+              "format": "dd MMM yyyy, hh:mm a",
+              "font_size": 12,
+              "element_id": "txt_completed_at",
+              "font_weight": "700",
+              "convert_to_local": true
+            }
+          ],
+          "type": "row",
+          "element_id": "row_completed_at"
+        }
+      ],
+      "type": "container",
+      "color": "#F7F7F7",
+      "element_id": "activity_log_card",
+      "padding_top": 20,
+      "border_color": "#E8E8D0",
+      "border_width": 1,
+      "padding_left": 20,
+      "border_radius": 14,
+      "padding_right": 20,
+      "padding_bottom": 20
+    }
+  ],
+  "data": {
+    "job": "SELECT * FROM job_card_keerthanaa WHERE id = {{arguments.job_id}}"
+  },
+  "label": "Job Detail",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "job_detailed_view"
+}

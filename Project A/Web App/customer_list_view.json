@@ -1,0 +1,387 @@
+{
+  "ui": [
+    {
+      "type": "sidebar",
+      "items": [
+        {
+          "icon": "edit",
+          "label": "Customers",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "6n3DCHm",
+              "view_id": "customer_list_view",
+              "element_id": "list_view_sidebar",
+              "navigation_type": "view"
+            }
+          }
+        },
+        {
+          "icon": "briefcase",
+          "label": "Jobs",
+          "active": true,
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "6n3DCHm",
+              "view_id": "jobs_list_view",
+              "navigation_type": "view"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "text": "Customers List",
+              "type": "text",
+              "color": "#3b3b3b",
+              "font_size": 25,
+              "font_weight": 500
+            },
+            {
+              "type": "container",
+              "width": 8.5
+            },
+            {
+              "text": "Add Customer",
+              "type": "button",
+              "width": 2,
+              "onclick": {
+                "1": {
+                  "ui": [
+                    {
+                      "text": "Add New Customer",
+                      "type": "text",
+                      "color": "#111827",
+                      "font_size": 20,
+                      "element_id": "popup_title",
+                      "font_weight": "700"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 24
+                    },
+                    {
+                      "type": "input",
+                      "label": "First Name",
+                      "element_id": "first_name_input",
+                      "input_type": "text"
+                    },
+                    {
+                      "type": "input",
+                      "label": "Last Name",
+                      "element_id": "last_name_input",
+                      "input_type": "text"
+                    },
+                    {
+                      "type": "input",
+                      "label": "Email",
+                      "element_id": "email_input",
+                      "input_type": "email"
+                    },
+                    {
+                      "type": "input",
+                      "label": "Address",
+                      "max_lines": 3,
+                      "element_id": "address_input",
+                      "input_type": "text"
+                    },
+                    {
+                      "text": "Add",
+                      "type": "button",
+                      "width": 4.3,
+                      "onclick": {
+                        "1": {
+                          "type": "execute_query",
+                          "query": "INSERT INTO customer_form_keerthanaa (first_name, last_name, email, address) VALUES ('{{input_data.first_name_input.[index]}}','{{input_data.last_name_input.[index]}}','{{input_data.email_input.[index]}}','{{input_data.address_input.[index]}}')"
+                        },
+                        "2": {
+                          "key": "customers_list",
+                          "type": "update_data",
+                          "query": "SELECT * FROM customer_form_keerthanaa"
+                        },
+                        "3": {
+                          "type": "close_popup"
+                        }
+                      },
+                      "btn_type": "filled_button",
+                      "element_id": "btn_add",
+                      "background_color": "#0052cc"
+                    }
+                  ],
+                  "type": "popup",
+                  "width": 500,
+                  "height": 600,
+                  "element_id": "add_customer_popup"
+                }
+              },
+              "btn_type": "filled_button",
+              "background_color": "#0052cc"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "type": "space_widget",
+          "space": 24
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "text": "First Name",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 3
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Last Name",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 2
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Email",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 2.7
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Address",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 3
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Actions",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 1
+                }
+              ],
+              "type": "row"
+            },
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customers_list.data.[index].first_name}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 3
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customers_list.data.[index].last_name}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customers_list.data.[index].email}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.7
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{customers_list.data.[index].address}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 3
+                    },
+                    {
+                      "ui": [
+                        {
+                          "icon": "edit",
+                          "size": 15,
+                          "type": "button",
+                          "color": "#2563EB",
+                          "onclick": {
+                            "1": {
+                              "ui": [
+                                {
+                                  "text": "Edit Customer",
+                                  "type": "text",
+                                  "color": "#111827",
+                                  "font_size": 20,
+                                  "element_id": "edit_popup_title",
+                                  "font_weight": "700"
+                                },
+                                {
+                                  "type": "space_widget",
+                                  "space": 24
+                                },
+                                {
+                                  "init": "{{customers_list.data.[index].first_name}}",
+                                  "type": "input",
+                                  "label": "First Name",
+                                  "element_id": "edit_first_name",
+                                  "input_type": "text"
+                                },
+                                {
+                                  "init": "{{customers_list.data.[index].last_name}}",
+                                  "type": "input",
+                                  "label": "Last Name",
+                                  "element_id": "edit_last_name",
+                                  "input_type": "text"
+                                },
+                                {
+                                  "init": "{{customers_list.data.[index].email}}",
+                                  "type": "input",
+                                  "label": "Email",
+                                  "element_id": "edit_email",
+                                  "input_type": "email"
+                                },
+                                {
+                                  "init": "{{customers_list.data.[index].address}}",
+                                  "type": "input",
+                                  "label": "Address",
+                                  "element_id": "edit_address",
+                                  "input_type": "text"
+                                },
+                                {
+                                  "text": "Update",
+                                  "type": "button",
+                                  "width": 4.3,
+                                  "onclick": {
+                                    "1": {
+                                      "type": "execute_query",
+                                      "query": "UPDATE customer_form_keerthanaa SET first_name='{{input_data.edit_first_name.[index]}}', last_name='{{input_data.edit_last_name.[index]}}', email='{{input_data.edit_email.[index]}}', address='{{input_data.edit_address.[index]}}' WHERE id={{customers_list.data.[index].id}}"
+                                    },
+                                    "2": {
+                                      "key": "customers_list",
+                                      "type": "update_data",
+                                      "query": "SELECT * FROM customer_form_keerthanaa"
+                                    },
+                                    "3": {
+                                      "type": "close_popup"
+                                    },
+                                    "4": {
+                                      "type": "toast",
+                                      "message": "Customer updated!",
+                                      "toast_type": "success"
+                                    }
+                                  },
+                                  "btn_type": "filled_button",
+                                  "element_id": "btn_update",
+                                  "background_color": "#0052cc"
+                                }
+                              ],
+                              "type": "popup",
+                              "width": 500,
+                              "height": 600,
+                              "element_id": "edit_customer_popup"
+                            }
+                          },
+                          "bg_color": "#EFF6FF",
+                          "btn_type": "icon_button"
+                        },
+                        {
+                          "icon": "eye",
+                          "size": 15,
+                          "type": "button",
+                          "color": "#2E7D32",
+                          "onclick": {
+                            "1": {
+                              "type": "navigation",
+                              "app_id": "6n3DCHm",
+                              "view_id": "customer_detailed_view",
+                              "arguments": {
+                                "customer_id": "{{customers_list.data.[index].id}}"
+                              },
+                              "navigation_type": "view"
+                            }
+                          },
+                          "bg_color": "#F2FFF5",
+                          "btn_type": "icon_button"
+                        }
+                      ],
+                      "type": "row",
+                      "width": 2
+                    }
+                  ],
+                  "type": "row"
+                }
+              ],
+              "data": "customers_list.data",
+              "type": "list",
+              "search": true,
+              "separator": true,
+              "search_hint": "Search by name, email or address...",
+              "search_query": "SELECT * FROM customer_form_keerthanaa WHERE (COALESCE(first_name, '') ILIKE '%search_term%' OR COALESCE(last_name, '') ILIKE '%search_term%' OR COALESCE(email, '') ILIKE '%search_term%' OR COALESCE(address, '') ILIKE '%search_term%') ORDER BY id DESC",
+              "header_background_color": "#F9FAFB"
+            }
+          ],
+          "type": "container",
+          "width": 12,
+          "padding_top": 20,
+          "border_color": "#E5E7EB",
+          "border_width": 1,
+          "padding_left": 20,
+          "border_radius": 12
+        }
+      ],
+      "type": "container"
+    }
+  ],
+  "data": {
+    "customers_list": "SELECT id, first_name, last_name, email, address FROM customer_form_keerthanaa"
+  },
+  "label": "Customers",
+  "view_id": "customer_list_view"
+}

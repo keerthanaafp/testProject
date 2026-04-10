@@ -1,0 +1,103 @@
+{
+  "ui": [
+    {
+      "text": "Add Job",
+      "type": "text",
+      "element_id": "job_card_title",
+      "font_weight": "700"
+    },
+    {
+      "type": "space_widget",
+      "space": 16
+    },
+    {
+      "data": [
+        "Maintenance",
+        "Installation",
+        "Repair",
+        "Inspection"
+      ],
+      "type": "input",
+      "label": "Job Type",
+      "element_id": "job_title_input",
+      "input_type": "dropdown"
+    },
+    {
+      "type": "space_widget",
+      "space": 16
+    },
+    {
+      "type": "input",
+      "label": "Equipment Name",
+      "element_id": "equipment_input",
+      "input_type": "text"
+    },
+    {
+      "type": "space_widget",
+      "space": 16
+    },
+    {
+      "type": "input",
+      "label": "Description",
+      "max_lines": 3,
+      "element_id": "remarks_input",
+      "input_type": "text"
+    },
+    {
+      "type": "space_widget",
+      "space": 24
+    },
+    {
+      "text": "Submit",
+      "type": "button",
+      "onclick": {
+        "1": {
+          "type": "execute_query",
+          "query": "INSERT INTO job_card_keerthanaa (job_title, equipment, description, customer_id, status, created_at , technician_id) VALUES ('{{input_data.job_title_input.[index]}}', '{{input_data.equipment_input.[index]}}', '{{input_data.remarks_input.[index]}}', '{{arguments.customer_id}}', 'Created', NOW() , '<!getUserId()!>')"
+        },
+        "2": {
+          "type": "update_data",
+          "query": "SELECT * FROM job_card_keerthanaa WHERE id = {{arguments.customer_id}}"
+        },
+        "3": {
+          "back": true,
+          "type": "navigation",
+          "arguments": {
+            "refresh": [
+              "jobs"
+            ]
+          }
+        },
+        "4": {
+          "url": "https://n8n.fieldproxy.ai/webhook/d16c1612-a342-4715-b21a-3086c8dbc6ae",
+          "body": {
+            "id": "{{arguments.customer_id}}"
+          },
+          "type": "api",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "api_type": "POST"
+        }
+      },
+      "btn_type": "filled_button"
+    }
+  ],
+  "data": {
+    "job": "SELECT * FROM job_card_keerthanaa WHERE id = {{arguments.customer_id}}",
+    "customer": "SELECT * FROM customer_form_keerthanaa WHERE id = {{arguments.customer_id}}"
+  },
+  "label": "Add Job",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "add_job",
+  "back_confirmation": {
+    "title": "Confirm Navigation",
+    "enabled": true,
+    "message": "Are you sure you want to go back? Any unsaved changes will be lost."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "ui": [
+    {
+      "ui": [
+        {
+          "init": "10",
+          "type": "input",
+          "element_id": "am_jc_limit",
+          "input_type": "text"
+        }
+      ],
+      "type": "container",
+      "height": 0,
+      "element_id": "am_jc_hidden_state"
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "icon": "briefcase",
+                      "size": 16,
+                      "type": "icon",
+                      "color": "#7B61FF",
+                      "element_id": "ic_job"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 8,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "text": "{{job.data.[index].job_title}}",
+                      "type": "text",
+                      "color": "#1A1A2E",
+                      "expanded": true,
+                      "font_size": 15,
+                      "element_id": "cust_name",
+                      "font_weight": "700"
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{job.data.[index].status}}",
+                          "type": "text",
+                          "color": "#2E7D32",
+                          "font_size": 10,
+                          "element_id": "cust_email",
+                          "font_weight": "700"
+                        }
+                      ],
+                      "type": "container",
+                      "color": "#F2FFF5",
+                      "element_id": "status_badge",
+                      "padding_top": 4,
+                      "padding_left": 8,
+                      "border_radius": 8,
+                      "padding_right": 8,
+                      "padding_bottom": 4
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "job_top_row",
+                  "cross_axis_alignment": "center"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 8
+                },
+                {
+                  "ui": [
+                    {
+                      "icon": "user",
+                      "size": 12,
+                      "type": "icon",
+                      "color": "#6B7280",
+                      "element_id": "ic_customer"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 4,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "text": "{{job.data.[index].first_name}} {{job.data.[index].last_name}}",
+                      "type": "text",
+                      "color": "#6B7280",
+                      "font_size": 12,
+                      "element_id": "txt_customer_name"
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "job_customer_row",
+                  "cross_axis_alignment": "center"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 8
+                },
+                {
+                  "ui": [
+                    {
+                      "icon": "clock",
+                      "size": 12,
+                      "type": "icon",
+                      "color": "#6B7280",
+                      "element_id": "ic_clock"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 4,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "text": "Created : ",
+                      "type": "text",
+                      "color": "#6B7280",
+                      "font_size": 11,
+                      "element_id": "lbl_created"
+                    },
+                    {
+                      "text": "{{job.data.[index].created_at}}",
+                      "type": "date_time",
+                      "color": "#6B7280",
+                      "format": "dd MMM yyyy, hh:mm a",
+                      "font_size": 11,
+                      "element_id": "txt_created",
+                      "convert_to_local": true
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "job_created_row",
+                  "cross_axis_alignment": "center"
+                },
+                {
+                  "type": "space_widget",
+                  "space": 4
+                },
+                {
+                  "ui": [
+                    {
+                      "icon": "user",
+                      "size": 11,
+                      "type": "icon",
+                      "color": "#6B7280",
+                      "element_id": "ic_technician"
+                    },
+                    {
+                      "type": "space_widget",
+                      "space": 4,
+                      "alignment": "horizontal"
+                    },
+                    {
+                      "text": "Created by : ",
+                      "type": "text",
+                      "color": "#6B7280",
+                      "font_size": 11,
+                      "element_id": "lbl_card_technician"
+                    },
+                    {
+                      "text": "{{job.data.[index].technician_id}}",
+                      "type": "text",
+                      "color": "#6B7280",
+                      "font_size": 11,
+                      "element_id": "txt_card_technician"
+                    }
+                  ],
+                  "type": "row",
+                  "element_id": "row_card_technician",
+                  "cross_axis_alignment": "center"
+                }
+              ],
+              "type": "container",
+              "color": "#FFFFFF",
+              "element_id": "cust_cont",
+              "padding_top": 16,
+              "border_color": "#E0E7FF",
+              "border_width": 1,
+              "padding_left": 16,
+              "border_radius": 14,
+              "margin_bottom": 12,
+              "padding_right": 16,
+              "padding_bottom": 16
+            }
+          ],
+          "type": "card",
+          "element_id": "card_view"
+        }
+      ],
+      "data": "job.data",
+      "type": "list",
+      "onclick": {
+        "1": {
+          "type": "navigation",
+          "app_id": "7vw0X0F",
+          "view_id": "job_detailed_view",
+          "arguments": {
+            "job_id": "{{job.data.[index].id}}"
+          }
+        }
+      },
+      "element_id": "job_list"
+    },
+    {
+      "text": "Load more requests ↓",
+      "type": "button",
+      "color": "#64748B",
+      "onclick": {
+        "1": {
+          "type": "execute_query",
+          "query": "SELECT COALESCE(NULLIF('{{input_data.am_jc_limit.0}}', '')::integer, 10) + 10 as new_limit",
+          "element_id": "exec_am_jc_load_more_limit"
+        },
+        "2": {
+          "key": "job",
+          "type": "update_data",
+          "query": "SELECT j.*, c.first_name, c.last_name FROM job_card_keerthanaa j LEFT JOIN customer_form_keerthanaa c ON j.customer_id = c.id ORDER BY j.id DESC LIMIT {{functions.1.data.[0].new_limit}}",
+          "element_id": "am_jc_update_list_load_more"
+        },
+        "3": {
+          "type": "update_value",
+          "value": "{{functions.1.data.[0].new_limit}}",
+          "element_id": "am_jc_limit"
+        }
+      },
+      "btn_type": "text_button",
+      "font_size": 12,
+      "element_id": "am_jc_load_more_btn",
+      "margin_top": 4,
+      "margin_bottom": 4
+    }
+  ],
+  "data": {
+    "job": "SELECT j.*, c.first_name, c.last_name FROM job_card_keerthanaa j LEFT JOIN customer_form_keerthanaa c ON j.customer_id = c.id ORDER BY j.id DESC LIMIT 10"
+  },
+  "label": "Job Cards View",
+  "margin": {
+    "top": 16,
+    "left": 16,
+    "right": 16,
+    "bottom": 16
+  },
+  "view_id": "keerthanaa_homescreen"
+}

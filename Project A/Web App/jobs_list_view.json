@@ -1,0 +1,277 @@
+{
+  "ui": [
+    {
+      "type": "sidebar",
+      "items": [
+        {
+          "icon": "users",
+          "label": "Customers",
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "6n3DCHm",
+              "view_id": "customer_list_view",
+              "navigation_type": "view"
+            }
+          }
+        },
+        {
+          "icon": "briefcase",
+          "label": "Jobs",
+          "active": true,
+          "onclick": {
+            "1": {
+              "type": "navigation",
+              "app_id": "6n3DCHm",
+              "view_id": "jobs_list_view",
+              "navigation_type": "view"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "ui": [
+        {
+          "ui": [
+            {
+              "text": "Jobs",
+              "type": "text",
+              "font_size": 25,
+              "element_id": "jobs_title",
+              "font_weight": "700"
+            }
+          ],
+          "type": "row",
+          "element_id": "jobs_header_row"
+        },
+        {
+          "type": "space_widget",
+          "space": 24
+        },
+        {
+          "ui": [
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "text": "Equipment",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 2.5
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Job Type",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 2.5
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Customer",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 2.7
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Status",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 1.6
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "Created",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 1.5
+                },
+                {
+                  "ui": [
+                    {
+                      "text": "View",
+                      "type": "text",
+                      "font_size": 13,
+                      "font_weight": "500"
+                    }
+                  ],
+                  "type": "container",
+                  "width": 0.3
+                }
+              ],
+              "type": "row",
+              "element_id": "jobs_header",
+              "padding_top": 12,
+              "border_color": "#E5E7EB",
+              "padding_bottom": 12,
+              "border_bottom_width": 1
+            },
+            {
+              "ui": [
+                {
+                  "ui": [
+                    {
+                      "ui": [
+                        {
+                          "text": "{{jobs_list.data.[index].equipment}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.5
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{jobs_list.data.[index].job_title}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.5
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{jobs_list.data.[index].first_name}} {{jobs_list.data.[index].last_name}}",
+                          "type": "text",
+                          "color": "#6B7280"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 2.7
+                    },
+                    {
+                      "ui": [
+                        {
+                          "ui": [
+                            {
+                              "text": "{{jobs_list.data.[index].status}}",
+                              "type": "text",
+                              "color": "#2E7D32",
+                              "font_size": 11,
+                              "element_id": "td_status_text",
+                              "font_weight": "700"
+                            }
+                          ],
+                          "type": "container",
+                          "color": "#F2FFF5",
+                          "element_id": "td_status_badge",
+                          "padding_top": 4,
+                          "padding_left": 10,
+                          "border_radius": 6,
+                          "padding_right": 10,
+                          "padding_bottom": 4
+                        }
+                      ],
+                      "type": "container",
+                      "width": 1.6
+                    },
+                    {
+                      "ui": [
+                        {
+                          "text": "{{jobs_list.data.[index].created_at}}",
+                          "type": "date_time",
+                          "color": "#6B7280",
+                          "format": "dd MMM yyyy",
+                          "font_size": 13,
+                          "element_id": "td_created"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 1.5
+                    },
+                    {
+                      "ui": [
+                        {
+                          "icon": "eye",
+                          "size": 15,
+                          "type": "button",
+                          "color": "#1C77FF",
+                          "onclick": {
+                            "1": {
+                              "type": "navigation",
+                              "app_id": "6n3DCHm",
+                              "view_id": "job_card_detailed_view",
+                              "arguments": {
+                                "job_id": "{{jobs_list.data.[index].id}}"
+                              },
+                              "navigation_type": "view"
+                            }
+                          },
+                          "bg_color": "#EFF6FF",
+                          "btn_type": "icon_button",
+                          "element_id": "td_view_btn"
+                        }
+                      ],
+                      "type": "container",
+                      "width": 0.3
+                    }
+                  ],
+                  "type": "row",
+                  "padding_top": 14,
+                  "border_color": "#F3F4F6",
+                  "padding_bottom": 14,
+                  "border_bottom_width": 1
+                }
+              ],
+              "data": "jobs_list.data",
+              "type": "list",
+              "search": true,
+              "separator": true,
+              "search_query": "SELECT j.id, j.job_title, j.equipment, j.status, j.description, j.created_at, c.first_name, c.last_name FROM job_card_keerthanaa j LEFT JOIN customer_form_keerthanaa c ON j.customer_id = c.id WHERE (COALESCE(j.job_title, '') ILIKE '%search_term%' OR COALESCE(j.equipment, '') ILIKE '%search_term%' OR COALESCE(j.status, '') ILIKE '%search_term%' OR COALESCE(c.first_name, '') ILIKE '%search_term%' OR COALESCE(c.last_name, '') ILIKE '%search_term%') ORDER BY j.id DESC",
+              "header_background_color": "#F9FAFB"
+            }
+          ],
+          "type": "container",
+          "width": 12,
+          "padding_top": 20,
+          "border_color": "#E5E7EB",
+          "border_width": 1,
+          "padding_left": 20,
+          "border_radius": 12
+        }
+      ],
+      "type": "container",
+      "width": 22,
+      "element_id": "jobs_main",
+      "padding_top": 32,
+      "padding_left": 32,
+      "padding_right": 32
+    }
+  ],
+  "data": {
+    "jobs_list": "SELECT j.id, j.job_title, j.equipment, j.status, j.description, j.created_at, c.first_name, c.last_name FROM job_card_keerthanaa j LEFT JOIN customer_form_keerthanaa c ON j.customer_id = c.id ORDER BY j.id DESC"
+  },
+  "label": "Jobs",
+  "view_id": "jobs_list_view"
+}
